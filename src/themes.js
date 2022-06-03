@@ -1,28 +1,50 @@
 export const themes = {
     light: {
         colors: {
-            text: '#f5f5f5',
-            background: {
-                _: '#d8d4d6',
-                contrast: '#363033',
+            text: {
+                _: '#2E3440',
+                accent: '#434C5E',
             },
-            primary: '#ff3e00',
-            primary_dark: '#9d2600',
-            secondary: '#677DB7',
+            background: {
+                _: '#ECEFF4',
+                contrast: '#D8DEE9',
+            },
+            primary: '#81A1C1',
+            primary_dark: '#5E81AC',
+            secondary: '#88C0D0',
         },
     },
     dark: {
         colors: {
-            text: '#f5f5f5',
-            background: {
-                _: '#162B3C',
-                contrast: '#060b0f',
+            text: {
+                _: '#E5E9F0',
+                accent: '#D8DEE9'
             },
-            primary: '#A22901',
-            primary_dark: '#651A01',
-            secondary: '#167631',
+            background: {
+                _: '#2E3440',
+                contrast: '#3B4252',
+            },
+            primary: '#81A1C1',
+            primary_dark: '#5E81AC',
+            secondary: '#88C0D0',
         },
     },
+    ironMan: {
+        colors: {
+            text: {
+                _: '#E5E9F0',
+                accent: '#2E3440',
+            },
+            background: {
+                _: '#AA0505',
+                contrast: '#6A0C0B'
+            },
+            primary: '#FBCA03',
+            primary_dark: '#B97D10',
+            secondary: '#67C7EB',
+            secondary_dark: '#3E778D'
+        },
+    }
 }
 
 export default themes;

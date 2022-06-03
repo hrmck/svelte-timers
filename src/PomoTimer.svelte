@@ -1,5 +1,6 @@
 <script>
     import TimerTypes from "./PomoTimerTypes.svelte";
+    import ThemeToggle from "./ThemeToggle.svelte";
     import SettingButton from "./SettingButton.svelte";
     import Settings from "./PomoTimerSettings.svelte";
     import WorkSessionCounter from "./WorkSessionCounter.svelte";
@@ -103,13 +104,14 @@
     };
 </script>
 
-<div id="pomodoro-timer">
+<div id="pomodoro-timer__{settingsVisible ? 'active' : 'inactive'}">
     <TimerTypes {timers} {timerStarted} bind:currentTimer />
 
-    <div
-        class="grid-container settings__{settingsVisible ? 'active' : ''}"
-        id="timer"
-    >
+    <div class="grid-container" id="timer">
+        <div class="grid-item" id="toggle-theme">
+            <ThemeToggle />
+        </div>
+
         <div class="grid-item" id="toggle-settings">
             <SettingButton bind:settingsVisible />
         </div>
@@ -155,17 +157,7 @@
 
 <style>
     button {
-        background-color: transparent;
-        color: inherit;
         font-size: 24px;
-
-        border: 3px solid;
-        border-radius: 10px;
-        padding: 12px;
-        margin: 0;
-    }
-    button:hover {
-        background-color: var(--theme-colors-primary_dark);
     }
 
     .grid-container {
@@ -181,12 +173,14 @@
         justify-content: center;
     }
 
-    .settings__active {
-        background-color: var(--theme-colors-secondary);
+    #pomodoro-timer__active {
+        background-color: var(--theme-colors-primary_dark);
+        color: var(--theme-colors-text);
+        text-align: center;
+        border-radius: 10px;
     }
-
-    #pomodoro-timer {
-        background-color: var(--theme-colors-primary);
+    #pomodoro-timer__inactive {
+        background-color: var(--theme-colors-background);
         color: var(--theme-colors-text);
         text-align: center;
         border-radius: 10px;
@@ -194,10 +188,14 @@
 
     #timer {
         height: 400px;
-        padding: 20px;
+        padding: 20px 20px 30px 20px;
         border-radius: 10px;
     }
 
+    #toggle-theme {
+        grid-area: 1 / 1 / 2 / 2;
+        z-index: 1;
+    }
     #work-sessions-counter {
         grid-area: 1 / 2 / 2 / 4;
     }

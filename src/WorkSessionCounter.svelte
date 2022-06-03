@@ -19,8 +19,8 @@
         justify-content: center;
     }
     .tomato {
-        height: 18px;
-        width: 18px;
+        height: 24px;
+        width: 24px;
         border: 2px solid var(--theme-colors-text);
         border-radius: 50%;
         margin: 3px 10px;
