@@ -4,21 +4,23 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
 
-      - name: Install and Build
+      - name: Install and Build 🔧
         run: |
           npm install
           npm run build
           
-      - name: Deploy to GitHub Pages
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.3.0
         with:
           branch: gh-pages
